@@ -1,0 +1,47 @@
+<!-- 
+    Document Object Model(DOM): 웹 화면을 구성하는 HTML 코드를 쉽게 접근할 수 있도록 만든 모델
+- DOM을 통해 접근해서 태그 속 컨텐츠를 바꿀 수도 있고
+  태그를 생성할 수도 있고
+  태그에 클래스를 생성할 수도 있다! (== 속성 변경 가능)
+=> 자바스크립트는 DOM을 활용하여 화면을 구성하는 모든 것들(HTML)에 접근할 수 있고, 원하는 대로 바꿀 수 있다. 
+-->
+
+<!-- 
+    document.write()는 브라우저에 출력하는 것이고
+    console.log()는 콘솔창에 출력하는 것이다!
+ -->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>자소서 글자수 계산기</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+        <style>
+            h1 {
+                margin-top: 30px;
+            }
+            #count {
+                float: right;
+            }
+        </style>
+    </head>
+    <body class="container">
+        <h1>자기소개</h1>
+        <textarea class="form-control" rows="3" id="jasoseol">
+저는 인성 문제가 없습니다.</textarea
+        >
+        <script>
+            // content에다가 document(HTML)안에서, id가 jasoseol인 태그의, 값(value)를 가져와 담아라
+            var content = document.getElementById("jasoseol").value;
+
+            // 콘솔창에서 content를 출력해라
+            console.log(content);
+        </script>
+    </body>
+</html>

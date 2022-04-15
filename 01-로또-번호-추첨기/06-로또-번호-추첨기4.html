@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+    </head>
+    <body>
+        <script>
+            /* 배열.indexOf(비교할 값)
+                비교할 값이 배열에 있으면 인덱스값, 없으면 -1 반환 */
+
+            var lotto = [];
+
+            for (var i = 0; i < 6; i++) {
+                // 일단 랜덤 숫자를 생성
+                var num = parseInt(Math.random() * 45 + 1);
+
+                // 만약, 로또안에 있는 값이 num 과 같으면 위치값을 반환해서 if 문을 실행하지 않도록 하고,
+                // num과 같지 않다면 -1를 반환해서 lotto 배열에 num 값을 넣어라
+                if (lotto.indexOf(num) == -1) {
+                    lotto.push(num);
+                }
+            }
+            document.write(lotto);
+        </script>
+    </body>
+</html>
