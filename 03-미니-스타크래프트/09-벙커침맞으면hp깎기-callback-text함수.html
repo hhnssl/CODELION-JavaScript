@@ -1,0 +1,69 @@
+<!-- 드론을 클릭하면, 침이 벙커에 닿기도 전에 hp가 깎임. 코드를 실행하면 앞서의 함수가 끝나기 전에 순차적으로 바로 뒤의 함수들이 실행되어버리기 때문.
+그래서 callback 함수를 사용하여 fadeOut이 될 때 hp를 깎도록 함.
+callback 함수: 어떤 함수에서 complete라는 인자를 주게되면, 이 함수가 끝나고 난 뒤에 다른 함수(complete)를 실행하겠다! == 현재 실행되고 있는 효과 가 완전하게 종료 후에 실행되는 함수
+  -->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>스타크래프트</title>
+        <style>
+            .background {
+                position: relative;
+                background-image: url("background.png");
+                background-size: 500px 330px;
+                width: 500px;
+                height: 330px;
+            }
+            #drone {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                top: 100px;
+                left: 60px;
+            }
+            #bunker {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                top: 80px;
+                right: 20px;
+            }
+            #spit {
+                display: none;
+                position: absolute;
+                top: 140px;
+                left: 150px;
+                width: 50px;
+                height: 30px;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="hp">HP: 3</h1>
+        <div class="background">
+            <img id="drone" src="drone.png" alt="drone" />
+            <img id="spit" src="spit.png" alt="spit" />
+            <img id="bunker" src="bunker.png" alt="bunker" />
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            var hp = 3;
+            $("#drone").click(function () {
+                $("#spit").fadeIn();
+                $("#spit").animate({ left: "+=250" });
+                $("#spit").fadeOut(function () {
+                    hp = hp - 1;
+                    $("#hp").text("HP :" + hp);
+                });
+                $("#spit").css({ left: "150px" });
+            });
+        </script>
+    </body>
+</html>

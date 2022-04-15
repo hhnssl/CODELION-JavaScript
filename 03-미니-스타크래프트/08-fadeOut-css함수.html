@@ -1,0 +1,70 @@
+<!--
+     쏜 침을 자연스럽게 사라지게하고(fadeOut)
+     다시 침을 쏠 수 있게 원위치 시키기(css)
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>스타크래프트</title>
+        <style>
+            .background {
+                position: relative;
+                background-image: url("background.png");
+                background-size: 500px 330px;
+                width: 500px;
+                height: 330px;
+            }
+            #drone {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                top: 100px;
+                left: 60px;
+            }
+            #bunker {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                top: 80px;
+                right: 20px;
+            }
+            #spit {
+                display: none;
+                position: absolute;
+                top: 140px;
+                left: 150px;
+                width: 50px;
+                height: 30px;
+                z-index: 2;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="background">
+            <img id="drone" src="drone.png" alt="drone" />
+            <img id="spit" src="spit.png" alt="spit" />
+            <img id="bunker" src="bunker.png" alt="bunker" />
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"
+        ></script>
+        <script>
+            $("#drone").click(function () {
+                $("#spit").fadeIn();
+                $("#spit").animate({ left: "+=250" });
+                $("#spit").fadeOut();
+                $("#spit").css({ left: "150px" });
+
+                // $("#spit").animate({ left: "-=250" });
+                // 150px는 침의 원래 자리
+                // -=250 가 아닌 이유는, fadeOut으로 침을 없애버리고 150px에서 -250으로 가버린 상태로 끝남. 그래서 두번째부터 클릭하면 침이 왼쪽에서 나오는 것! 아마도!! <= 아님!!! fadeOut 없어도 침 안 없어짐..
+                // animate({ left: "-=250" }) 는 동일하게 작동하는 것을 보니, css와 animate의 단위가 다른 듯하다.
+                //left에 단위가 없을 경우 디폴트 단위가 무엇인지 찾아보았는데 there is no default unit 이란다. 그럼 대체 뭐란 말임
+            });
+        </script>
+    </body>
+</html>
