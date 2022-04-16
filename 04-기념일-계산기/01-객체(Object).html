@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>객체(Object)</title>
+    </head>
+    <body>
+        <h1>객체(Object)</h1>
+        <script>
+            // person이라는 객체 안에, name과 sayHello라는 키를 만들고 값에 각각 문자열과 메소드를 넣엇다.
+            var person = {
+                name: "jocoding",
+                sayHello: function () {
+                    console.log("hello");
+                },
+            };
+            // 괄호가 있고 없고는 메소드이냐 아니냐의 차이였구나!!
+            console.log(person.name);
+            person.sayHello();
+        </script>
+    </body>
+</html>

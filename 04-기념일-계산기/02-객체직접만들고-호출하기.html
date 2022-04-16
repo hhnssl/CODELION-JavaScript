@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <title>객체(Object)</title>
+    </head>
+    <body>
+        <h1>객체(Object)</h1>
+        <script>
+            var hansol = {
+                name: "hansol oh",
+                age: 28,
+                family: ["mom", "dad", "sister", "brother"],
+                sayHi: function () {
+                    console.log("HI!");
+                },
+                own: { animal: "cat", money: 20000 },
+            };
+
+            console.log(hansol.name);
+            console.log(hansol.age);
+            console.log(hansol.family);
+            hansol.sayHi();
+            hansol.sayHi();
+            console.log(hansol.own.animal);
+            console.log(hansol.own.money);
+        </script>
+    </body>
+</html>
